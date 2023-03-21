@@ -19,6 +19,7 @@
   grid-area: button;
   align-self: center;
   border: solid 1px #fff;
+  margin-left: 18px;
 }
 
 .profile__add-button {
@@ -76,10 +77,6 @@
   .profile__description {
     width: 100%;
     text-align: center;
-  }
-
-  .profile__edit-button {
-    margin-left: 18px;
   }
 
   .profile__image {
