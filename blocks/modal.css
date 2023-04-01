@@ -26,6 +26,10 @@
   padding: 0;
 }
 
+.modal__close:hover {
+  opacity: 0.6;
+}
+
 .modal__close {
   background-image: url(../images/close_icon.svg);
   border: none;
