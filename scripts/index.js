@@ -54,6 +54,11 @@ function fillProfileForm () {
   profileEditModal.classList.add('modal_opened');
 }
 
+function openProfileForm () {
+  fillProfileForm ();
+  profileEditModal.classList.add('modal_opened');
+}
+
 function getCardElement (cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector('.card__title');
@@ -73,7 +78,7 @@ function handleProfileSubmit (e) {
 }
 
 /* Event Listeners */
-profileEditButton.addEventListener('click', fillProfileForm);
+profileEditButton.addEventListener('click', openProfileForm);
 
 profileModalCloseButton.addEventListener('click', closePopup);
 
