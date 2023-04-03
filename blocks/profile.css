@@ -24,6 +24,7 @@
   border: solid 1px #fff;
   margin-left: 18px;
   cursor: pointer;
+  transition: opacity 1s;
 }
 
 .profile__add-button:hover {
@@ -38,6 +39,7 @@
   border: solid 2px #fff;
   border-radius: 2px;
   cursor: pointer;
+  transition: opacity 1s;
 }
 
 .profile__title {
