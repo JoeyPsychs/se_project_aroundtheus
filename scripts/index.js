@@ -48,14 +48,14 @@ function closePopup () {
   profileEditModal.classList.remove('modal_opened');
 }
 
-function openProfileForm () {
-  profileEditModal.classList.add('modal_opened');
-}
-
 function fillProfileForm () {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  openProfileForm ();
+}
+
+function openProfileForm () {
+  profileEditModal.classList.add('modal_opened');
+  fillProfileForm ();
 }
 
 function getCardElement (cardData) {
@@ -77,7 +77,7 @@ function handleProfileSubmit (e) {
 }
 
 /* Event Listeners */
-profileEditButton.addEventListener('click', fillProfileForm);
+profileEditButton.addEventListener('click', openProfileForm);
 
 profileModalCloseButton.addEventListener('click', closePopup);
 
