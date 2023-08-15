@@ -86,10 +86,21 @@
           required placeholder="Image URL"
           class="modal__input modal__input_type_url"
           >
-        <button type="submit" class="modal__button">Save</button>
+        <button type="submit" class="modal__button">Create</button>
       </form>
     </div>
   </div>
+
+  <!-- Image Preview Modal -->
+  <div class="modal" id="image-preview-modal">
+    <div class="modal__image-container">
+      <button class="modal__close"></button>
+      <img src="" class="modal__image">
+      <p class="modal__image-title"></p>
+    </div>
+  </div>
+
+
   <script src="./scripts/index.js" defer></script>
   </body>
 </html>

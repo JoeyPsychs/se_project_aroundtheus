@@ -56,6 +56,18 @@
   box-sizing: border-box;
 }
 
+.modal__image-container {
+  position: relative;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__image-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
