@@ -91,15 +91,15 @@ function getCardElement (cardData) {
   });
 
   cardImage.addEventListener('click', () => {
+    modalImage.src = cardData.link;
+    modalImageTitle.textContent = cardData.name;
     openModal(imagePreviewModal);
   })
-
 
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
-  modalImage.src = cardData.link;
-  modalImageTitle.textContent = cardData.name;
+
   return cardElement;
 }
 
