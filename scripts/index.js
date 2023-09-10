@@ -49,8 +49,8 @@ const addCardModalCloseButton = addCardModal.querySelector('.modal__close');
 const addCardForm = document.querySelector('#add-card-form');
 
 /* Form Data */
-const nameInput = document.querySelector('#profile-name-input');
-const jobInput = document.querySelector('#profile-description-input');
+const nameInput = document.querySelector('#profile-name');
+const jobInput = document.querySelector('#profile-description');
 const cardTitleInput = document.querySelector('.modal__input_type_title');
 const cardUrlInput = document.querySelector('.modal__input_type_url');
 
@@ -58,15 +58,19 @@ const cardUrlInput = document.querySelector('.modal__input_type_url');
 /* Functions */
 function closeModal (modal) {
   modal.classList.remove('modal_opened');
-}
-
-function fillProfileForm () {
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileDescription.textContent;
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 function openModal(modal) {
   modal.classList.add('modal_opened');
+  document.addEventListener('keydown', closeByEscape);
+}
+
+function closeByEscape(e, modal) {
+  if (e.key === 'Escape') {
+    const openedModal = document.querySelector('.modal_opened');
+    closeModal(openedModal);
+  }
 }
 
 function renderCard(cardData, wrapper) {
@@ -124,9 +128,11 @@ function handleAddCardSubmit (e) {
 
 /* Event Listeners */
 profileEditButton.addEventListener('click', () => {
-   openModal(profileEditModal);
-   fillProfileForm();
+  openModal(profileEditModal);
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileDescription.textContent;
   });
+
 profileModalCloseButton.addEventListener('click', () => closeModal(profileEditModal));
 
 // form listeners
@@ -142,3 +148,12 @@ imagePreviewModalCloseButton.addEventListener('click', () => closeModal(imagePre
 
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsListEl));
+
+[profileEditModal, addCardModal, imagePreviewModal].forEach((modal) => {
+  modal.addEventListener('mousedown', (e) => {
+    if (e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")) {
+      closeModal(modal);
+    }
+  })
+});
