@@ -1,3 +1,5 @@
+import Card from "../components/Card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -75,8 +77,10 @@ function closeByEscape(e, modal) {
 }
 
 function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+  // const cardElement = getCardElement(cardData);
+  // wrapper.prepend(cardElement);
+  const card = new Card(cardData, "#card-template");
+  wrapper.prepend(card.getView());
 }
 
 function getCardElement(cardData) {
